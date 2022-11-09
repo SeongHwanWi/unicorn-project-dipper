@@ -21,6 +21,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+
 import logo from "@assets/image/logo.png";
 import Wallet from "./atoms/Wallet";
 import styled from "@emotion/styled";
@@ -28,6 +29,12 @@ import { toast } from "react-toastify";
 import useAuth from "@hooks/useAuth";
 import KaiKasImageUrl from "@assets/image/kaikas.png";
 import * as colors from "@styles/colors";
+
+const NeonText = styled.div`
+  color: #fff;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,
+    0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
+`;
 
 const GrayRoundBox = styled.div`
   display: flex;
@@ -136,13 +143,13 @@ export default function NavBar() {
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           <Image src={logo} h={7} />
-          <Text
+          <NeonText
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
             color={"yellow"}
           >
             Dipper
-          </Text>
+          </NeonText>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
