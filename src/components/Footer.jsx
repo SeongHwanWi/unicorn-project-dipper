@@ -1,31 +1,14 @@
 import {
   Box,
-  chakra,
   Container,
-  Link,
   SimpleGrid,
   Stack,
   Text,
-  VisuallyHidden,
-  Input,
-  IconButton,
-  useColorModeValue,
   Image,
   Flex,
 } from "@chakra-ui/react";
 
-import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
-import { BiMailSend } from "react-icons/bi";
-
 import logo from "@assets/image/logo.png";
-
-const ListHeader = ({ children }) => {
-  return (
-    <Text fontWeight={"500"} fontSize={"lg"} mb={2}>
-      {children}
-    </Text>
-  );
-};
 
 export default function LargeWithNewsletter() {
   return (
