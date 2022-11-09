@@ -3,7 +3,6 @@ import {
   Flex,
   Text,
   IconButton,
-  Button,
   Stack,
   Collapse,
   Icon,
@@ -22,14 +21,13 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
-import logo from "@assets/image/logo.png"
+import logo from "@assets/image/logo.png";
 import Wallet from "./atoms/Wallet";
 import styled from "@emotion/styled";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 import useAuth from "@hooks/useAuth";
 import KaiKasImageUrl from "@assets/image/kaikas.png";
 import * as colors from "@styles/colors";
-
 
 const GrayRoundBox = styled.div`
   display: flex;
@@ -39,7 +37,8 @@ const GrayRoundBox = styled.div`
   height: 40px;
   border-radius: 20px;
   background-color: ${colors.bgSecondary};
- cursor: pointer;`;
+  cursor: pointer;
+`;
 
 const WalletBox = styled(GrayRoundBox)`
   background-color: ${colors.textYellow};
@@ -49,7 +48,7 @@ const WalletBox = styled(GrayRoundBox)`
 const KaikasImage = styled.img`
   width: 20px;
   height: 20px;
-`
+`;
 const klaytn = window?.klaytn;
 
 async function isKaikasAvailable() {
@@ -64,23 +63,20 @@ async function isKaikasAvailable() {
     klaytn._kaikas.isUnlocked(),
   ]);
 
-
   return results.every((res) => res);
 }
 
-
-
 export default function NavBar() {
   const { isOpen, onToggle } = useDisclosure();
-  const {user,setUser} = useAuth();
+  const { user, setUser } = useAuth();
 
-  async function loginWithKaikas(){
-    if(!klaytn){
-      toast.error("kaikas 설치 필요",{position: toast.POSITION.TOP_CENTER});
+  async function loginWithKaikas() {
+    if (!klaytn) {
+      toast.error("kaikas 설치 필요", { position: toast.POSITION.TOP_CENTER });
       return;
     }
     // toast.success("H  I",{position: toast.POSITION.TOP_CENTER});
-    try{
+    try {
       const accounts = await toast.promise(
         klaytn.enable(),
         {
@@ -89,39 +85,39 @@ export default function NavBar() {
         { closeButton: true }
       );
       setUser(accounts[0]);
-      localStorage.setItem("_user",accounts[0])
-      toast.success(`${accounts[0].slice(0,13)}...님`)
-    }catch{
-      toast.error("미쳤습니까 휴먼")
+      localStorage.setItem("_user", accounts[0]);
+      toast.success(`${accounts[0].slice(0, 13)}...님`);
+    } catch {
+      toast.error("다시 시도해주세요");
     }
-    
-
   }
 
-  function handleLogin(){
+  function handleLogin() {
     loginWithKaikas();
   }
-  async function handleDone(){
+
+  async function handleDone() {
     const isAvailable = await isKaikasAvailable();
-    if(isAvailable){
+    if (isAvailable) {
       toast.success("이미 로그인되었습니다.");
       return;
     }
-    toast.warn("다시 로그인 해주세요");
+    toast.warn("다시 로그인 해주세요.");
     setUser("");
     localStorage.removeItem("_user");
   }
+
   return (
-    <Box>
+    <Box pos={"fixed"} top={0} width={"100%"} zIndex={999} opacity={"0.9"}>
       <Flex
-        bg={useColorModeValue("white", "gray.800")}
-        color={useColorModeValue("gray.600", "white")}
+        bg={"black"}
+        backdropFilter={"saturate(50%) blur(8px)"}
         minH={"60px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1}
         borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.900")}
+        borderColor={"yellow.200"}
         align={"center"}
       >
         <Flex
@@ -143,11 +139,11 @@ export default function NavBar() {
           <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
-            color={useColorModeValue("gray.800", "white")}
+            color={"yellow"}
           >
             Dipper
           </Text>
-           
+
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
           </Flex>
@@ -159,8 +155,8 @@ export default function NavBar() {
           direction={"row"}
           spacing={6}
         >
-          <WalletBox  onClick={user ? handleDone : handleLogin}>
-          {user ? <KaikasImage src ={KaiKasImageUrl}/> : <Wallet/>}
+          <WalletBox onClick={user ? handleDone : handleLogin}>
+            {user ? <KaikasImage src={KaiKasImageUrl} /> : <Wallet />}
           </WalletBox>
         </Stack>
       </Flex>
@@ -173,9 +169,9 @@ export default function NavBar() {
 }
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("gray.800", "white");
-  const popoverContentBgColor = useColorModeValue("white", "gray.800");
+  const linkColor = "white";
+  const linkHoverColor = "yellow";
+  const popoverContentBgColor = "black";
 
   return (
     <Stack direction={"row"} spacing={4}>
@@ -229,13 +225,13 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
       display={"block"}
       p={2}
       rounded={"md"}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+      _hover={{ bg: "blackAlpha.100" }}
     >
       <Stack direction={"row"} align={"center"}>
         <Box>
           <Text
             transition={"all .3s ease"}
-            _groupHover={{ color: "pink.400" }}
+            _groupHover={{ color: "yellow" }}
             fontWeight={500}
           >
             {label}
