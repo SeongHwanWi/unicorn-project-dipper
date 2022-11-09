@@ -3,56 +3,52 @@ import TopBanner from "@components/TopBanner";
 import NavBar from "@components/NavBar";
 import Features from "@components/Features";
 import TokenEconomy from "@components/TokenEconomy";
-import HeroTwo from "@components/HeroTwo";
 import Footer from "@components/Footer";
 import ThreeTierPricing from "@components/Pricing";
 import useAuth from "@hooks/useAuth";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
+import GlobalStyle from "./GlobalStyle";
 
-
-const klaytn = window?.klaytn
-
+const klaytn = window?.klaytn;
 
 function App() {
-  const {user, setUser} = useAuth();
-  useEffect(()=>{
-    if(!klaytn) return;
+  const { user, setUser } = useAuth();
+  useEffect(() => {
+    if (!klaytn) return;
     const account = localStorage.getItem("_user");
     const currentKaikasAccount = klaytn?.selectedAddress;
 
-    if(!account || !currentKaikasAccount){
+    if (!account || !currentKaikasAccount) {
       setUser("");
-      localStorage.removeItem("_user")
+      localStorage.removeItem("_user");
       return;
     }
 
-    if(account === currentKaikasAccount){
+    if (account === currentKaikasAccount) {
       setUser(account);
-      localStorage.setItem("_user",account);
+      localStorage.setItem("_user", account);
     }
+  }, [setUser]);
 
-  },[setUser])
+  useEffect(() => {
+    if (!klaytn) return;
 
-  useEffect(()=>{
-    if(!klaytn) return;
-
-    const handleChangeAccounts = () =>{
-      if(!user) return;
+    const handleChangeAccounts = () => {
+      if (!user) return;
       const changedAccount = klaytn?.selectedAddress;
-      if(user !== changedAccount){
-        toast.success(`${changedAccount.slice(0,5)}... 계정이 바뀌셨군요`);
+      if (user !== changedAccount) {
+        toast.success(`${changedAccount.slice(0, 5)}... 계정이 바뀌셨군요`);
         setUser(changedAccount);
-        localStorage.setItem("_user",changedAccount);
+        localStorage.setItem("_user", changedAccount);
       }
-    }
-    klaytn?.on("accountsChanged", handleChangeAccounts)
+    };
+    klaytn?.on("accountsChanged", handleChangeAccounts);
 
-    return () =>{
-      klaytn.removeListener("accountsChanged",handleChangeAccounts)
-    }
-
-  },[user,setUser])
+    return () => {
+      klaytn.removeListener("accountsChanged", handleChangeAccounts);
+    };
+  }, [user, setUser]);
 
   useEffect(() => {
     if (!klaytn) {
@@ -82,6 +78,7 @@ function App() {
 
   return (
     <ChakraProvider>
+      <GlobalStyle />
       <NavBar />
       <TopBanner />
       <Features />

@@ -7,11 +7,30 @@ import {
   Button,
   Box,
   Image,
-  Highlight,
 } from "@chakra-ui/react";
 
+import styled from "@emotion/styled";
 import RouteImg from "@assets/image/itinerary.png";
 import BgRouteImg from "@assets/image/bg_route.png";
+import "@assets/fonts/Eulyoo1945-Regular.woff2";
+
+const NeonText = styled.div`
+  color: #fff;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,
+    0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
+`;
+
+const NeonTextForYou = styled.div`
+  color: #fff;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #ffee00,
+    0 0 82px #ffee00, 0 0 92px #ffee00, 0 0 102px #ffee00, 0 0 151px #ffee00;
+`;
+
+const SubText = styled.div`
+  color: aliceblue;
+  font-family: "Eulyoo1945-Regular";
+  max-width: "3xl";
+`;
 
 export default function TopBanner() {
   return (
@@ -45,38 +64,27 @@ export default function TopBanner() {
           fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
           lineHeight={"110%"}
         >
-          <Highlight
-            query="함께&nbsp;"
-            styles={{ px: "3xl", py: "3xl", rounded: "1px", bg: "yellow" }}
-          >
-            함께&nbsp;
-          </Highlight>
+          <NeonText>함께&nbsp;</NeonText>
           <Text as={"span"} color={"whiteAlpha.700"}>
             걸어 봐요.
           </Text>
           <br />
-          <Text as={"span"} color={"yellow"}>
-            빛
-          </Text>
+          <NeonText as={"span"}>빛</NeonText>
           <Text as={"span"} color={"whiteAlpha.700"}>
             나는&nbsp;
           </Text>
-          <Text as={"span"} color={"yellow"}>
-            당신
-          </Text>
+          <NeonTextForYou as={"span"}>당신</NeonTextForYou>
           <Text as={"span"} color={"whiteAlpha.700"}>
             만의&nbsp;
           </Text>
-          <Text as={"span"} color={"yellow"}>
-            길.&nbsp;
-          </Text>
+          <NeonText as={"span"}>길.&nbsp;</NeonText>
         </Heading>
 
-        <Text color={"white"} maxW={"3xl"} noOfLines={"2"}>
+        <SubText>
           당신만의 특별한 추억이 담긴 장소가 있나요?
           <br />
           좋은 추억이 담긴 루트를 제작하고 다른 사람에게 소개해보세요.
-        </Text>
+        </SubText>
 
         <Stack spacing={6} direction={"row"}>
           <Button
@@ -86,10 +94,10 @@ export default function TopBanner() {
             bg={"black"}
             _hover={{ bg: "blackAlpha.100" }}
           >
-            Get started
+            추억 공유하러 가기
           </Button>
           <Button rounded={"full"} px={6}>
-            Learn more
+            사용법이 궁금해요
           </Button>
         </Stack>
         <Flex w={"full"} justify={"center"} pos={"relative"}>
