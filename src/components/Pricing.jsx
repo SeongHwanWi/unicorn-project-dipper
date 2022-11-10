@@ -15,7 +15,6 @@ import HikingImage from "@assets/image/hiking.png";
 import InstagramImage from "@assets/image/instagram.png";
 import EatingImage from "@assets/image/eating.png";
 
-
 function PriceWrapper({ children }) {
   return (
     <Box
@@ -23,7 +22,7 @@ function PriceWrapper({ children }) {
       shadow="base"
       borderWidth="1px"
       alignSelf={"center"}
-    borderColor={useColorModeValue("gray.200", "gray.500")}
+      borderColor={useColorModeValue("gray.200", "gray.500")}
       borderRadius={"xl"}
     >
       {children}
@@ -35,12 +34,19 @@ export default function ThreeTierPricing() {
   return (
     <Box py={12}>
       <VStack spacing={2} textAlign="center">
-        <Heading as="h1" fontSize="4xl" >
-          원하시는 루트 저희와 함께 가요
+        <Heading as="h1" fontSize="4xl">
+          원하시는 루트
+          <br />
+          저희와 함께 가요
         </Heading>
-        <Text fontSize="lg" color={"gray.500"} lineHeight={"200%"} marginBottom={"5px"}>
+        <Text
+          fontSize="lg"
+          color={"gray.500"}
+          lineHeight={"200%"}
+          marginBottom={"5px"}
+        >
           Activity, PhotoZone, Tasty, Drama or MusicVideo Filming Sites,
-          <br/> Whatever you want !
+          <br /> Whatever you want !
         </Text>
       </VStack>
       <Stack
@@ -50,52 +56,53 @@ export default function ThreeTierPricing() {
         spacing={10}
         py={10}
       >
-         <PriceWrapper>
+        <PriceWrapper>
           <Box position="relative" w={{ base: "520px", md: 240 }}>
-          <Box py={4} px={12}>
-            <Text fontWeight="500" fontSize="2xl">
-              Activity
-            </Text>
-            <HStack justifyContent="center">
-              <Text fontSize="3xl" fontWeight="600">
-              #
+            <Box py={4} px={12}>
+              <Text fontWeight="500" fontSize="2xl">
+                Activity
               </Text>
-              <Text fontSize="5xl" fontWeight="900">
-              96
-              </Text> 
-              <Text fontSize="1xl" fontWeight="400">
-              <br/>of&nbsp;Routes
-              </Text>
-            </HStack>
-          </Box>
-          <VStack
-            py={4}
-            borderBottomRadius={"xl"}
-          >
-            <Flex w={"full"} align={"center"} justify={"center"} pos={"relative"}>
-           <Image src={HikingImage} w={100} />
-          <Box
-            w={"5rem"}
-            h={"5rem"}
-            bgGradient={"linear(to-r, green.300, yellow.300)"}
-            pos={"absolute"}
-            zIndex={-3}
-            filter={"blur(60px)"}
-          />
-          
-          </Flex>
-           <Box w="80%" pt={7}>
-              <Button w="full" colorScheme="green" variant="outline">
-                루트 보러 가기
-              </Button>
+              <HStack justifyContent="center">
+                <Text fontSize="3xl" fontWeight="600">
+                  #
+                </Text>
+                <Text fontSize="5xl" fontWeight="900">
+                  96
+                </Text>
+                <Text fontSize="1xl" fontWeight="400">
+                  <br />
+                  of&nbsp;Routes
+                </Text>
+              </HStack>
             </Box>
-            
-          </VStack>
+            <VStack py={4} borderBottomRadius={"xl"}>
+              <Flex
+                w={"full"}
+                align={"center"}
+                justify={"center"}
+                pos={"relative"}
+              >
+                <Image src={HikingImage} w={100} />
+                <Box
+                  w={"5rem"}
+                  h={"5rem"}
+                  bgGradient={"linear(to-r, green.300, yellow.300)"}
+                  pos={"absolute"}
+                  zIndex={-3}
+                  filter={"blur(60px)"}
+                />
+              </Flex>
+              <Box w="80%" pt={7}>
+                <Button w="full" colorScheme="green" variant="outline">
+                  루트 보러 가기
+                </Button>
+              </Box>
+            </VStack>
           </Box>
         </PriceWrapper>
 
         <PriceWrapper>
-         <Box position="relative" w={{ base: "520px", md: 240 }}>
+          <Box position="relative" w={{ base: "520px", md: 240 }}>
             <Box
               position="absolute"
               top="-35px"
@@ -125,29 +132,26 @@ export default function ThreeTierPricing() {
                 </Text>
                 <Text fontSize="5xl" fontWeight="900">
                   147
-                </Text>  
+                </Text>
                 <Text fontSize="1xl" fontWeight="400">
-              <br/>of&nbsp;Routes
-              </Text>
+                  <br />
+                  of&nbsp;Routes
+                </Text>
               </HStack>
             </Box>
-            <VStack
-              py={4}
-              borderBottomRadius={"xl"}
-            >
+            <VStack py={4} borderBottomRadius={"xl"}>
               <Flex w={"full"} justify={"center"} pos={"relative"}>
-          <Image src={InstagramImage} w={132} />
-          <Box
-            w={"5rem"}
-            h={"5rem"}
-            bgGradient={"linear(to-r, green.300, yellow.300)"}
-            pos={"absolute"}
-            zIndex={-3}
-            filter={"blur(50px)"}
-          />
-          
-          </Flex>
-              
+                <Image src={InstagramImage} w={132} />
+                <Box
+                  w={"5rem"}
+                  h={"5rem"}
+                  bgGradient={"linear(to-r, green.300, yellow.300)"}
+                  pos={"absolute"}
+                  zIndex={-3}
+                  filter={"blur(50px)"}
+                />
+              </Flex>
+
               <Box w="80%" pt={7}>
                 <Button w="full" colorScheme="green">
                   루트 보러 가기
@@ -158,45 +162,42 @@ export default function ThreeTierPricing() {
         </PriceWrapper>
         <PriceWrapper>
           <Box position="relative" w={{ base: "520px", md: 240 }}>
-          <Box py={4} px={12}>
-            <Text fontWeight="500" fontSize="2xl">
-              Tasty
-            </Text>
-            <HStack justifyContent="center">
-              <Text fontSize="3xl" fontWeight="600">
-                #
+            <Box py={4} px={12}>
+              <Text fontWeight="500" fontSize="2xl">
+                Tasty
               </Text>
-              <Text fontSize="5xl" fontWeight="900">
-                120
-              </Text>
-              <Text fontSize="1xl" fontWeight="400">
-              <br/>of&nbsp;Routes
-              </Text>
-            </HStack>
-          </Box>
-          <VStack
-          
-            py={4}
-            borderBottomRadius={"xl"}
-          ><Flex w={"full"} justify={"center"} pos={"relative"}>
-           <Image src={EatingImage} w={100} />
-          <Box
-            w={"5rem"}
-            h={"5rem"}
-            bgGradient={"linear(to-r, green.300, yellow.300)"}
-            pos={"absolute"}
-            zIndex={-3}
-            filter={"blur(50px)"}
-          />
-          
-          </Flex>
-        
-            <Box w="80%" pt={7}>
-              <Button w="full" colorScheme="green" variant="outline">
-                루트 보러 가기
-              </Button>
+              <HStack justifyContent="center">
+                <Text fontSize="3xl" fontWeight="600">
+                  #
+                </Text>
+                <Text fontSize="5xl" fontWeight="900">
+                  120
+                </Text>
+                <Text fontSize="1xl" fontWeight="400">
+                  <br />
+                  of&nbsp;Routes
+                </Text>
+              </HStack>
             </Box>
-          </VStack>
+            <VStack py={4} borderBottomRadius={"xl"}>
+              <Flex w={"full"} justify={"center"} pos={"relative"}>
+                <Image src={EatingImage} w={100} />
+                <Box
+                  w={"5rem"}
+                  h={"5rem"}
+                  bgGradient={"linear(to-r, green.300, yellow.300)"}
+                  pos={"absolute"}
+                  zIndex={-3}
+                  filter={"blur(50px)"}
+                />
+              </Flex>
+
+              <Box w="80%" pt={7}>
+                <Button w="full" colorScheme="green" variant="outline">
+                  루트 보러 가기
+                </Button>
+              </Box>
+            </VStack>
           </Box>
         </PriceWrapper>
       </Stack>

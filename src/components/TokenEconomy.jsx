@@ -3,118 +3,138 @@ import {
   Center,
   Circle,
   Text,
-  VStack,
   Flex,
-  Heading,
+  SimpleGrid,
+  VStack,
 } from "@chakra-ui/react";
+
 import EconomyTextCircle from "./atoms/EconomyTextCircle";
+
 export default function TokenEconomy() {
   const radius = 150;
   const marginHori = 70;
   const marginVer = -7;
   return (
-    <Box marginBottom={150}>
-      <VStack
-        as={Box}
-        textAlign={"center"}
-        spacing={{ base: 8, md: 14 }}
-        py={{ base: 20, md: 36 }}
+    <Flex
+      justify={"center"}
+      py={12}
+      px={{ base: "20px", sm: "30px", lg: "50px" }}
+      h={"150vh"}
+      align={"center"}
+    >
+      <SimpleGrid
+        columns={{ base: 1, md: 2 }}
+        spacing={10}
+        alignItems={"center"}
       >
-        <Heading
-          fontWeight={400}
-          fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
-          lineHeight={"120%"}
-          marginLeft={200}
-          marginRight={200}
-        >
-          당신이 걸어온 길을 공유하고 보상받을 수 있는 경제 시스템
-          <br />
-        </Heading>
-        <Text color={"gray.500"}></Text>
-      </VStack>
-      <Flex w={"full"} align={"center"} justify={"center"} pos={"relative"}>
-        <Box>
-          <Box marginY={marginVer}>
-            <Center>
-              <EconomyTextCircle
-                title="시스템"
-                subTitle="스마트 컨트렉트로 관리되는 투명한 구조"
-                bgColor="green.500"
-                radius={radius}
-                marginHori={0}
-                marginVer={marginVer}
-                textColor="white"
-              />
-            </Center>
-          </Box>
-          <Box>
-            <Center>
-              <EconomyTextCircle
-                title="보상"
-                subTitle="토큰,
+        <VStack spacing={4}>
+          <Text
+            fontWeight={"400px"}
+            fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
+            lineHeight={"120%"}
+            textAlign={"center"}
+            fontFamily={"Pretendard-Regular"}
+            p={2}
+          >
+            나만 아는 루트를
+            <br />
+            공유하고 <br />
+            사용하며 <br />
+            보상받는 시스템
+            <br />
+          </Text>
+        </VStack>
+
+        <Flex w={"full"} align={"center"} justify={"center"} pos={"relative"}>
+          <Circle
+            maxH={"330px"}
+            fontFamily={"Pretendard-Regular"}
+            marginTop={50}
+          >
+            <Box>
+              <Box marginY={marginVer}>
+                <Center>
+                  <EconomyTextCircle
+                    title="시스템"
+                    subTitle="스마트 컨트렉트로 관리되는 투명한 구조"
+                    bgColor="green.500"
+                    radius={radius}
+                    marginHori={0}
+                    marginVer={marginVer}
+                    textColor="white"
+                  />
+                </Center>
+              </Box>
+              <Box>
+                <Center>
+                  <EconomyTextCircle
+                    title="보상"
+                    subTitle="토큰,
               NFT"
-                bgColor="green.200"
-                radius={radius}
-                marginHori={marginHori}
-                marginVer={0}
-                textColor="black"
-              />
-              <EconomyTextCircle
-                title="컨텐츠"
-                subTitle="여행, 맛집 탐방, 운동 코스"
-                bgColor="green.200"
-                radius={radius}
-                marginHori={marginHori}
-                marginVer={0}
-                textColor="black"
-              />
-            </Center>
-          </Box>
-          <Box marginTop={30}>
-            <Center>
-              <EconomyTextCircle
-                title="가이드"
-                subTitle="특별한 루트를 공유해보세요"
-                bgColor="green.500"
-                radius={radius}
-                marginHori={marginHori}
-                marginVer={0}
-                textColor="white"
-              />
-              <EconomyTextCircle
-                title="팔로워"
-                subTitle="루트를 인증하고 보상을 얻어보세요"
-                bgColor="green.500"
-                radius={radius}
-                marginHori={marginHori}
-                marginVer={0}
-                textColor="white"
-              />
-            </Center>
-          </Box>
-          <Box marginY={marginVer}>
-            <Center>
-              <EconomyTextCircle
-                title="경험"
-                subTitle="뻔하지 않은 새로운 경험을 누려보세요"
-                bgColor="green.200"
-                radius={radius}
-                marginHori={0}
-                marginVer={marginVer}
-                textColor="black"
-              />
-            </Center>
-          </Box>
-        </Box>
-        <Circle
-          w="200px"
-          h="200px"
-          bgGradient={"linear(to-r, green.200, yellow.500)"}
-          pos={"absolute"}
-          zIndex={-3}
-          filter={"blur(70px)"}
-        />
-      </Flex>
-    </Box>
+                    bgColor="green.200"
+                    radius={radius}
+                    marginHori={marginHori}
+                    marginVer={0}
+                    textColor="black"
+                  />
+                  <EconomyTextCircle
+                    title="컨텐츠"
+                    subTitle="여행, 맛집, 운동, 사진"
+                    bgColor="green.200"
+                    radius={radius}
+                    marginHori={marginHori}
+                    marginVer={0}
+                    textColor="black"
+                  />
+                </Center>
+              </Box>
+              <Box marginTop={30}>
+                <Center>
+                  <EconomyTextCircle
+                    title="가이드"
+                    subTitle="자신만의 루트를 공유"
+                    bgColor="green.500"
+                    radius={radius}
+                    marginHori={marginHori}
+                    marginVer={0}
+                    textColor="white"
+                  />
+                  <EconomyTextCircle
+                    title="팔로워"
+                    subTitle="루트를 인증하고 보상을 얻어보세요"
+                    bgColor="green.500"
+                    radius={radius}
+                    marginHori={marginHori}
+                    marginVer={0}
+                    textColor="white"
+                  />
+                </Center>
+              </Box>
+              <Box marginY={marginVer}>
+                <Center>
+                  <EconomyTextCircle
+                    title="경험"
+                    subTitle='"dipper"ence 한 경험'
+                    bgColor="green.200"
+                    radius={radius}
+                    marginHori={0}
+                    marginVer={marginVer}
+                    textColor="black"
+                  />
+                </Center>
+              </Box>
+            </Box>
+            <Circle
+              w="200px"
+              h="200px"
+              bgGradient={"linear(to-r, green.200, yellow.500)"}
+              pos={"absolute"}
+              zIndex={-3}
+              filter={"blur(70px)"}
+            />
+          </Circle>
+        </Flex>
+      </SimpleGrid>
+    </Flex>
   );
 }
