@@ -23,6 +23,10 @@ import {
 } from "@chakra-ui/icons";
 
 import logo from "@assets/image/logo.png";
+import logo1 from "@assets/image/logo_0.png";
+import logo2 from "@assets/image/logo_1.png";
+import logo3 from "@assets/image/logo_5.png";
+import logo4 from "@assets/image/logo_6.png";
 import Wallet from "./atoms/Wallet";
 import styled from "@emotion/styled";
 import { toast } from "react-toastify";
@@ -54,6 +58,31 @@ const NeonText = styled.div`
     }
   }
   font-family: PyeongChangPeace-Light;
+`;
+
+const StarBox = styled.div``;
+
+const Star = styled.div`
+  position: relative;
+  width: 1.6rem;
+  height: 2rem;
+`;
+
+const StarTwo = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: star 0.8s infinite alternate;
+  @keyframes star {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
 `;
 
 const GrayRoundBox = styled.div`
@@ -161,8 +190,19 @@ export default function NavBar() {
             aria-label={"Toggle Navigation"}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Image src={logo} h={7} />
+        <Flex
+          flex={{ base: 1 }}
+          align={"center"}
+          justify={{ base: "center", md: "start" }}
+        >
+          <StarBox>
+            <Star>
+              <Image src={logo3} h={"100%"} />
+              <StarTwo>
+                <Image src={logo4} h={"100%"} />
+              </StarTwo>
+            </Star>
+          </StarBox>
           <NeonText
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             color={"yellow"}
